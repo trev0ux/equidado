@@ -1,0 +1,73 @@
+@import "../_base/typography";
+@import "../_base/_variables";
+
+.step-one {
+    padding: 48px 0;
+
+    section {
+        margin-bottom: 60px;
+    }
+
+    &__feeling-group {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    fieldset {
+        margin-bottom: 32px;
+
+        legend {
+            @include font-size($font-regular);
+            color: $light-black;
+            font-weight: $font-weight--medium;
+        }
+    }
+
+    button {
+        width: 100%;
+    }
+
+    textarea {
+        height: auto;
+    }
+
+    .radio-feeling {
+        background-color: $blue-light;
+        padding: 8px 12px;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        box-sizing: context-box;
+
+        &:has(input:checked) {
+            border: 2px solid $primary !important;
+        }
+
+        span {
+            border-radius: 100px;
+            height: 50px;
+            width: 50px;
+            padding: 6px;
+            background-color: $white;
+            margin-bottom: 8px;
+            @include font-size($font-large);
+        }
+
+        label {
+            border: none;
+            color: $light-black;
+            font-weight: $font-weight--medium;
+            background: none;
+        }
+
+        input {
+            position: absolute;
+            opacity: 0;
+        }
+    }
+}

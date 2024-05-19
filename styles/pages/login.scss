@@ -1,0 +1,25 @@
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 120px;
+
+    > svg {
+        width: 200px;
+        height: 120px;
+        margin-bottom: 32px;
+    }
+
+    &__form {
+        max-width: 370px;
+        margin: 0 auto;
+        > div {
+            margin-bottom: 16px;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 32px;
+        }
+    }
+}

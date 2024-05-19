@@ -1,0 +1,14 @@
+@import "../_base/typography";
+@import "../_base/_variables";
+
+.step-final {
+    span {
+        @include font-size($font-large);
+        margin-bottom: 16px;
+    }
+
+    h2 {
+        @include font-size($font-big);
+        color: $light-black;
+    }
+}

@@ -1,0 +1,19 @@
+
+@import "./_base/typography";
+@import "./_base/variables";
+@import "bootstrap/scss/bootstrap";
+@import "./_components/atoms/_buttons";
+@import "./_components/atoms/_forms";
+
+body {
+  font-family: $font-family--primary;
+}
+
+
+.invalid-feedback {
+  color: $red;
+  font-family: $font-family--primary;
+  font-weight: $font-weight--regular;
+  @include font-size($font-small);
+  margin-bottom: 6px;
+}

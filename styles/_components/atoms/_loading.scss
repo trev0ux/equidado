@@ -1,0 +1,37 @@
+.loading {
+    position: relative;
+    overflow: hidden;
+    animation: Loading 1.5s both infinite linear;
+    background: #f6f7f8;
+    background: linear-gradient(to right, #eee 8%, #ddd 18%, #eee 33%);
+    background-size: 800px 104px;
+}
+
+.order-loading {
+    border-radius: 10px;
+    width: 100%;
+    min-height: 208px;
+    margin: 30px 0;
+}
+
+@keyframes Loading {
+    0% {
+        background-position: -400px 0;
+    }
+
+    25% {
+        background-position: -200px 0;
+    }
+
+    50% {
+        background-position: 0 0;
+    }
+
+    75% {
+        background-position: 200px 0;
+    }
+
+    100% {
+        background-position: 400px 0;
+    }
+}

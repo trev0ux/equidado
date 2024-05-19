@@ -1,0 +1,8 @@
+@import "../../_base/_typography";
+@import "../../_base/_variables";
+
+.btn {
+    border-radius: 8px;
+    padding: 13px 24px;
+    font-weight: $font-weight--bold;   
+}
