@@ -2,10 +2,11 @@
   <section class="container">
     <div class="login">
       <Icon name="EquidadoLogo"></Icon>
-      <form class="login__form" type="submit">
+      <form class="login__form" @submit.prevent="submitForm">
         <div>
           <label for="email" class="form-label">Email</label>
           <input
+            v-model="email"
             id="email"
             placeholder="Digite o seu email"
             class="form-control"
@@ -14,8 +15,10 @@
         <div>
           <label for="password" class="form-label">Senha</label>
           <input
+            v-model="password"
             id="password"
             placeholder="Digite o sua senha"
+            type="password"
             class="form-control"
           />
         </div>
@@ -36,32 +39,46 @@ export default {
   },
   data() {
     return {
-      credentials: 0,
+      email: "",
+      password: "",
     };
   },
-  async mounted() {
+  methods: {
+    async submitForm() {
+      let dadosUsuario = {
+        email: this.email,
+        password: this.password
+      };
+      let url = "/api/v1/token-auth/";
 
-    let dadosUsuario = {
-      email: "lucas@equidado.com.br",
-      password: "1234equi"
-    };
-    let url = "/api/v1/token-auth/";
-
-    axios.post(url, dadosUsuario, {
-        headers: {
+      try {
+        const response = await axios.post(url, dadosUsuario, {
+          headers: {
             "Content-Type": "application/json",
             "Access-Control-Allow-Origin": "*",
-        }
-    })
-    .then(response => {
-        console.log(response.data);
-    })
-    .catch(error => {
+          }
+        });
+        const token = response.data.token;
+        localStorage.setItem('authToken', token);
+        this.redirectToFeedbackPage();
+      } catch (error) {
         console.error('Erro:', error);
-    });
+      }
+    },
+    getToken() {
+      return localStorage.getItem('authToken');
+    },
+    redirectToFeedbackPage() {
+      this.$router.push({ name: 'StepOne' });
+    }
   },
+  mounted() {
+    let token = this.getToken();
+    if (token != null) {
+      this.redirectToFeedbackPage();
+    }
+  }
 };
-
 </script>
 
 <style lang="scss">

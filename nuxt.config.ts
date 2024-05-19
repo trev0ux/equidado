@@ -1,5 +1,5 @@
 export default defineNuxtConfig({
-  devtools: { enabled: true },
+  devtools: { enabled: false },
   css: [
     { src: '/styles/globals.scss', lang: 'sass' },
     { src: '/styles/reset.scss', lang: 'sass' }
