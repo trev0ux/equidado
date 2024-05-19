@@ -27,6 +27,7 @@
 
 <script>
 import { Icon } from "#components";
+import axios from 'axios';
 
 export default {
   name: "Login",
@@ -39,26 +40,28 @@ export default {
     };
   },
   async mounted() {
-    try {
-      const response = await useFetch(
-        "https://equidado-008c032b8ff0.herokuapp.com/api/v1/token-auth/",
-        {
-          method: "POST",
-          mode: 'no-cors',
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: this.credentials,
-        }
-      );
-      const token = response.body;
 
-      console.log(response);
-    } catch (error) {
-      console.log(error);
-    }
+    let dadosUsuario = {
+      email: "lucas@equidado.com.br",
+      password: "1234equi"
+    };
+    let url = "/api/v1/token-auth/";
+
+    axios.post(url, dadosUsuario, {
+        headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+        }
+    })
+    .then(response => {
+        console.log(response.data);
+    })
+    .catch(error => {
+        console.error('Erro:', error);
+    });
   },
 };
+
 </script>
 
 <style lang="scss">

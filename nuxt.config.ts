@@ -21,7 +21,7 @@ export default defineNuxtConfig({
   },
   nitro: {
     routeRules: {
-      "/api/**": { proxy: "https://equidado-008c032b8ff0.herokuapp.com/api/**", cors: true },
+      "/api/**": { proxy: "https://equidado-008c032b8ff0.herokuapp.com/api/**", cors: false },
     },
   },
   app: {
@@ -37,4 +37,9 @@ export default defineNuxtConfig({
     }
   },
   modules: ['nuxt-icon', "@nuxt/image"],
+  axios: {
+    baseURL: 'https://equidado-008c032b8ff0.herokuapp.com',
+    proxyHeaders: false,
+    credentials: false,
+  },
 })
