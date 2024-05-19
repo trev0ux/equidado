@@ -1,10 +1,12 @@
-# Nuxt 3 Minimal Starter
+# Equidado
+> Inteligência na diversidade dos dados
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Este projeto é responsável por fornecer um sistema com interface intuítiva e segura para a realização de feedbacks (*pelo funcionário*) e para consulta dos insights (*por representantes da empresa*).
 
 ## Setup
 
-Make sure to install the dependencies:
+Instale as dependências:
+*este projeto foi testado utilizando o npm*
 
 ```bash
 # npm
@@ -20,9 +22,19 @@ yarn install
 bun install
 ```
 
-## Development Server
+## Rodando a aplicação
 
-Start the development server on `http://localhost:3000`:
+O projeto consulta o [Equidado API](https://equidado-008c032b8ff0.herokuapp.com) e é necessário está autenticado para consumo da API.
+
+**Endpoint disponíveis**:
+
+- POST /api/v1/token-auth/ -> obter token de acesso da api a partir do usuário cadastrado (usuário demo: `lucas@equidado.com.br` e senha: `1234equi`);
+- GET /api/v1/feedback/ -> retorna todos os feedbacks do usuários;
+- POST /api/v1/feedback/ -> salva o feedback;
+
+### Ambiente desenvolvimento
+
+Rodando o projeto em `http://localhost:3000`:
 
 ```bash
 # npm
@@ -38,9 +50,9 @@ yarn dev
 bun run dev
 ```
 
-## Production
+### Ambiente produção
 
-Build the application for production:
+Construa a aplicação para produção:
 
 ```bash
 # npm
@@ -56,7 +68,7 @@ yarn build
 bun run build
 ```
 
-Locally preview production build:
+Pré-visualizando o projeto de produção "buildado":
 
 ```bash
 # npm
@@ -72,4 +84,5 @@ yarn preview
 bun run preview
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+Consulte o material [deployment documentation](https://nuxt.com/docs/getting-started/deployment) para mais informações sobre deploy.
+
